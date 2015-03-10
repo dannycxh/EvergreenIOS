@@ -1,4 +1,4 @@
-Evergreen iOS SDK (v3.2015108)
+Evergreen iOS SDK
 ================
 
 Thanks for choosing Evergreen!
