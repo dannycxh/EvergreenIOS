@@ -5,7 +5,7 @@ Thanks for choosing Evergreen!
 
 ### More documentation
 
-- [Sign for a Merchant account](https://merchant.trialpay.com/register/?t=mb)
+- [Sign for an account](https://merchant.trialpay.com/register/?t=mb)
 
 ### Changelog
 
