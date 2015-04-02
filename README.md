@@ -3,9 +3,9 @@ Evergreen iOS SDK
 
 Thanks for choosing Evergreen!
 
-### More documentation
+#### Other links
 
-- [Sign for an account](https://merchant.trialpay.com/register/?t=mb)
+- [Sign up for an account](https://merchant.trialpay.com/register/?t=mb)
 
 ### Changelog
 
