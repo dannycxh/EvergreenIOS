@@ -50,8 +50,8 @@ FOUNDATION_EXPORT NSMutableArray *getErrors();
 
 
 
-#define TPVerboseCurrentFile TPLoggerIncludeFileLogs([[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent]);
-#define TPVerboseCurrentFunction TPLoggerIncludeFunctionLogs([NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
+#define TPLoggerIncludeCurrentFileLogs TPLoggerIncludeFileLogs([[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent]);
+#define TPLoggerIncludeCurrentFunctionLogs TPLoggerIncludeFunctionLogs([NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__]);
 
 void TPLogAttributedMessage(const char *file, int line, const char *function, NSString *tag, int level, NSString * format, ... ) NS_FORMAT_FUNCTION(6, 7);
 
