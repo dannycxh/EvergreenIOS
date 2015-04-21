@@ -21,3 +21,5 @@ iOS App Trailers now available on portrait apps.
 #### Version 3.2015108
 
 Initial version of Evergreen iOS SDK, enjoy!
+
+*Note*: You may not implement TrialPay's services or technology on applications that are directed at, or collect data from, children under the age of 13.
