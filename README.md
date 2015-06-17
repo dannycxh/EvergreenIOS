@@ -23,3 +23,6 @@ iOS App Trailers now available on portrait apps.
 Initial version of Evergreen iOS SDK, enjoy!
 
 *Note*: You may not implement TrialPay's services or technology on applications that are directed at, or collect data from, children under the age of 13.
+
+*Note*: You are required to display [TrialPay's Privacy Policy](http://www.trialpay.com/legal/privacy-policy/) and [Terms of Use](http://www.trialpay.com/legal/terms/) to all users with any TrialPay offers displayed on your site or app.
+
