@@ -7,94 +7,103 @@
 #import "TrialpayEvent.h"
 
 /*!
- Base event class.
- Performs events tasks and provides external API methods.
-
- @see @ref SimpleIntegration
+ * @brief Predefined App Events.
+ *
+ * Provides a list of predefined events for apps, which simplify the use of events.
+ * @see predefEvents
  */
 @interface TPEvent : TrialpayEvent {
 
 }
 
-// Event creation
+#pragma mark - Event creation
 
 /*!
- * Create an app loaded event.
+ * @brief Create an app loaded event.
  * @param timeSinceLast the time since last event
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventAppLoaded:(NSNumber*)timeSinceLast;
 
 /*!
- * Create an app resumed event.
+ * @brief Create an app resumed event.
  * @param timeSinceLast the time since last event
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventAppResumed:(NSNumber*)timeSinceLast;
 
 // User
 
 /*!
- * Create an user sign up event.
+ * @brief Create an user sign up event.
  * @param isKnownUser A boolean to determine if this is an existing user.
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventUserSignUp:(NSNumber*)isKnownUser;
 /*!
- * Create an user sign in event.
+ * @brief Create an user sign in event.
  * @param timeSinceLast the time since last event
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventUserSignIn:(NSNumber*)timeSinceLast;
 
 /*!
- * Create a menu opened event.
+ * @brief Create a menu opened event.
  * @param menuId the id of the menu
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventMenuOpened:(NSNumber*)menuId;
 /*!
- * Create a menu closed event.
+ * @brief Create a menu closed event.
  * @param menuId the id of the menu
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventMenuClosed:(NSNumber*)menuId;
 
 /*!
- * Create an item gained event.
+ * @brief Create an item gained event.
  * @param levelId The id of the item
  * @param itemName the name of the item
  * @param amount the quantity of items
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventItemGained:(NSNumber *)levelId itemName:(NSString *)itemName amount:(NSNumber *)amount;
 /*!
- * Create an item used event.
+ * @brief Create an item used event.
  * @param level_id The id of the item
  * @param itemName the name of the item
  * @param amount the quantity of items
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventItemUsed:(NSNumber *)level_id itemName:(NSString *)itemName amount:(NSNumber *)amount;
 
 /*!
- * Create a show UI event.
+ * @brief Create a show UI event.
  * @param name the UI name
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventShowUI:(NSString*)name;
 /*!
- * Create a hide UI event.
+ * @brief Create a hide UI event.
  * @param name the UI name
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventHideUI:(NSString*)name;
 
 /*!
- * Create a button click event.
+ * @brief Create a button click event.
  * @param buttonName the button name.
- * @return A TrialpayEvent.
+ * @return An object representing the event.
  */
 - (TrialpayEvent *)eventButtonClicked:(NSString *)buttonName;
+
+/*!
+ * @brief Creates an event for low balance if a required amount is not fulfilled.
+ * @param currencyName the currency to receive the balance
+ * @param amount the current balance
+ * @param requiredAmount the minimum balance required
+ * @return The event created if the minimum was not reached.
+ */
+- (TrialpayEvent *)eventLowBalance:(NSString *)currencyName currentAmount:(NSNumber *)amount requiredAmount:(NSNumber *)requiredAmount;
 
 @end

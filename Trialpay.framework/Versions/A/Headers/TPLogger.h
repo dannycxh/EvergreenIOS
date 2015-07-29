@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
+@class TPConfiguration;
+@class TPJSCore;
+@class TPDataStore;
+
 typedef enum {
     TPLogLevelInfo = 0,
     TPLogLevelWarn = 1,
@@ -78,6 +82,7 @@ void TPLoggerIncludeFunctionLogs(NSString *function);
 
 + (void) flushLogsToFile:(NSString *)path;
 #endif
+- (void)onConfigInitWithConfig:(TPConfiguration *)config jsCore:(TPJSCore *)jsCore dataStore:(TPDataStore *)dataStore;
 
 - (void)notifyAppDidEnterBackground;
 - (void)notifyAppWillTerminate;
@@ -86,5 +91,6 @@ void TPLoggerIncludeFunctionLogs(NSString *function);
 - (void)notifyAppDidBecomeActive;
 
 - (void)logResponse:(NSString*)key data:(NSData*)data error:(NSError*)error;
+- (void)loadLoggingParamsFromConfig;
 
 @end

@@ -9,12 +9,14 @@
 
 @class TPURL;
 
-@interface TPUrlManager : NSObject
-+ (TPUrlManager *)sharedInstance;
+@protocol TPURLTracker
+- (void)logURL:(TPURL*)url;
+@end
 
+@interface TPUrlManager : NSObject
 + (void)clearHTTPCache;
 
-- (TPURL *)buildURLWithName:(NSString *)name;
++ (TPURL *)buildURLWithName:(NSString *)name;
 
-- (TPURL *)buildURL:(NSDictionary *)urlDict;
++ (TPURL *)buildURL:(NSDictionary *)urlDict;
 @end

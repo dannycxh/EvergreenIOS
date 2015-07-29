@@ -11,7 +11,9 @@
 
 // API Constants to define Gender
 typedef enum {
-    TP_Gender_Male, TP_Gender_Female, TP_Gender_Unknown
+    TP_Gender_Unknown = 0,
+    TP_Gender_Male = 1,
+    TP_Gender_Female = 2
 } TPGender;
 
 // API Enum for payer profiles
