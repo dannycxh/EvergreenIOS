@@ -3,6 +3,8 @@ Evergreen iOS SDK
 
 Thanks for choosing Evergreen!
 
+This package supports iOS 7+, but will degrade gracefully in older versions.
+
 #### Other links
 
 - [Sign up for an account](https://merchant.trialpay.com/register/?t=mb)
