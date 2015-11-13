@@ -61,16 +61,16 @@
 
 /*!
     @brief Initialize TrialPay with an app key.
-    @param appId The app key.
+    @param appKey The app key.
  */
-+ (void)initApp:(NSString*)appId;
++ (void)initApp:(NSString*)appKey;
 
 /*!
  @brief Initialize TrialPay with an app key and user id.
- @param appId The app key.
+ @param appKey The app key.
  @param sid The user id.
  */
-+ (void)initApp:(NSString*)appId withSid:(NSString*)sid;
++ (void)initApp:(NSString*)appKey withSid:(NSString*)sid;
 
 #pragma mark - State
 

@@ -12,6 +12,14 @@ This package supports iOS 7+, but will degrade gracefully in older versions.
 
 ### Changelog
 
+#### Version 3.2015461
+
+The changes allow for an easier handling of event statuses. 
+
+* Offer Browsing - Developers can now choose when offers are rotated on single-offer flows. Offer browsing has to be enabled on the dashboard.
+* Moved away from polling of offer availability (isAvailable) to notifications of event status change. Enables a more efficient reaction for time-sensitive UI and generating better UX.
+* Reduce memory by reusing events. The same event created multiple times will result in the same object now.
+
 #### Version 3.2015311
 
 Multiple fixes.

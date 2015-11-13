@@ -8,7 +8,6 @@
 
 @class Trialpay;
 @class TrialpayEvent;
-@class BaseTrialpayManager;
 
 /*!
  * @brief Events delegate.
@@ -49,15 +48,16 @@
 /*!
  * @brief Announces that a flow/UI should be opened by the app.
  *
- * The Evergreen SDK can be configured to open dialogs to select between multiple choices.
+ * The Evergreen SDK can be configured to open dialogs to select between multiple flows.
  * For the choices that result in TrialPay flows, nothing will be announced.
- * For the choices that result in non-TrialPay flows, this delegate method will be invoked, so that the appropriate
+ * For the choices that result in customer flows, this delegate method will be invoked, so that the appropriate
  * action can be taken by the app.
  *
  * @param trialpay the Trialpay singleton
+ * @param event the TrialpayEvent that triggered this flow
  * @param flowId the name of the flow configured on the merchant panel.
  */
-- (void)trialpay:(Trialpay *)manager openCustomerFlow:(NSString *)flowId;
+- (void)trialpay:(Trialpay *)trialpay event:(TrialpayEvent*)event openFlow:(NSString *)flowId;
 @end
 
 /*!

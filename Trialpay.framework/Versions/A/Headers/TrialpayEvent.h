@@ -6,6 +6,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+// moving away from isAvailable to status updates
+typedef enum {
+    TPEventStatusNoOffers = 2,
+    TPEventStatusNewOffers = 3
+} TPEventStatus;
+
+#define TPEventStatusInvalidated (TPEventStatus)1
+
+@class TrialpayEvent;
+typedef void (^TPStatusChangeBlock)(TrialpayEvent*,TPEventStatus);
+
 /*!
  * @brief The event object.
  * 
@@ -23,6 +35,17 @@
 @property (nonatomic, copy) NSString *name;
 /// A dictionary with information about this event
 @property (nonatomic, strong) NSDictionary *eventInfo;
+/// The current selected offer index (@see offerBrowsing)
+@property (nonatomic, readonly, assign) NSUInteger offerIndex;
+
+/*!
+ * A callback for event status changes.
+ *
+ * Use this callback when there is a need to update the UI based on the availability of offers.
+ *
+ * @see @ref isAvailable
+ */
+@property (nonatomic, strong) TPStatusChangeBlock onStatusChange;
 
 /*!
  * @brief Create a custom event.
@@ -42,9 +65,20 @@
 
 /*!
  * @brief Checks if there are offers available for this event.
+ *
+ * Most TrialPay code runs on a separate thread, which requires some processes to be dispatched.
+ * This makes the response of the availability call to be asynchronous. Once the availability is calculated
+ * on TrialPay thread, the response is provided using a callback method.
+ *
+ * @deprecated Use onStatusChange property for status notifications instead of polling for availability.
+ *
+ * @param block The block of code to execute when the response is calculated.
+ *
  * @return YES if there are offers available
+ *
+ * @see @ref isAvailable
  */
-- (void)isAvailable:(void (^)(BOOL isAvailable))block;
+- (void)isAvailable:(void (^)(BOOL isAvailable))block __deprecated_msg("Replaced by onStatusChange");
 
 /*!
  * @brief Executes the action assigned for this event.
@@ -67,8 +101,47 @@
 /*!
  * @brief Fire a pixel to Trialpay letting us know that you've displayed a Trialpay offer via touchpointInfo.
  *
- * This allows us to track and optimize offer performance.
+ * This allows TrialPay to track and optimize offer performance.
+ *
+ * @deprecated Use fireImpression instead.
  */
-- (void)registerOfferImpression;
+- (void)registerOfferImpression __deprecated_msg("Replaced by fireImpression");
+
+/*!
+ * @brief Fire a pixel to Trialpay letting us know that you've displayed a Trialpay offer via touchpointInfo.
+ *
+ * This allows TrialPay to track and optimize offer performance.
+ */
+- (void)fireImpression;
+
+/*!
+ * @brief Rotate to the next offer.
+ *
+ * Used with Native API, it allows rotating offer.
+ * @see @ref offerBrowsing
+ *
+ * @return the offer index
+ */
+- (NSUInteger)nextOffer;
+
+/*!
+ * @brief Rotate to the previous offer.
+ *
+ * Used with Native API, it allows rotating offer.
+ * @see @ref offerBrowsing
+ *
+ * @return the offer index
+ */
+- (NSUInteger)previousOffer;
+
+/*!
+ * @brief Return the offer count.
+ *
+ * Used with Native API, it returns the amount of offers available for this event.
+ * @see @ref offerBrowsing
+ *
+ * @return the offer count
+ */
+- (NSUInteger)offerCount;
 
 @end
