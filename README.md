@@ -12,6 +12,13 @@ This package supports iOS 7+, but will degrade gracefully in older versions.
 
 ### Changelog
 
+#### Version 3.2015500
+
+Maintenance build
+
+Bugfixes and improvements for offer rotation and offer browsing
+Improved responsiveness for availability
+
 #### Version 3.2015461
 
 The changes allow for an easier handling of event statuses. 
