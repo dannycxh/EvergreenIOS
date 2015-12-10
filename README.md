@@ -12,14 +12,14 @@ This package supports iOS 7+, but will degrade gracefully in older versions.
 
 ### Changelog
 
-#### Version 3.2015500
+#### Version 3.2 (2015500)
 
 Maintenance build
 
 Bugfixes and improvements for offer rotation and offer browsing
 Improved responsiveness for availability
 
-#### Version 3.2015461
+#### Version 3.2 (2015461)
 
 The changes allow for an easier handling of event statuses. 
 
@@ -27,19 +27,19 @@ The changes allow for an easier handling of event statuses.
 * Moved away from polling of offer availability (isAvailable) to notifications of event status change. Enables a more efficient reaction for time-sensitive UI and generating better UX.
 * Reduce memory by reusing events. The same event created multiple times will result in the same object now.
 
-#### Version 3.2015311
+#### Version 3.1 (2015311)
 
 Multiple fixes.
 
-#### Version 3.2015141
+#### Version 3.1 (2015141)
 
 iOS memory management improvements
 
-#### Version 3.2015110
+#### Version 3.1 (2015110)
 
 iOS App Trailers now available on portrait apps.
 
-#### Version 3.2015108
+#### Version 3.0 (2015108)
 
 Initial version of Evergreen iOS SDK, enjoy!
 
